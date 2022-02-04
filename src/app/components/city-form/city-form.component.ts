@@ -13,7 +13,7 @@ import { OpenweathermapService } from '../../services/openweathermap.service';
 export class CityFormComponent implements OnInit {
   @Output() loading: EventEmitter<boolean> = new EventEmitter();
   @Output() cityFound: EventEmitter<Weather> = new EventEmitter();
-  @Output() onError: EventEmitter<void> = new EventEmitter();
+  @Output() onProcess: EventEmitter<void> = new EventEmitter();
 
   form: FormGroup = new FormGroup({});
   error: string = '';
@@ -30,28 +30,27 @@ export class CityFormComponent implements OnInit {
     const city: string = this.form.get('city')?.value.trim();
     if (!city) return;
 
-    this.loading.emit(true);
+    this.onProcess.emit();
 
     this.openweatherService.findByCityName(city).subscribe(
       (response: Openweathermap) => {
-        this.cityFound.emit(this.generateWeather(response));
-        this.loading.emit(false);
+        this.cityFound.emit(this.generateWeather(response, city));
       },
       () => {
         this.error =
           'Não foi possível encontrar essa cidade!<br> Por favor, tente novamente :)';
         this.loading.emit(false);
-        this.onError.emit();
       }
     );
   }
 
-  private generateWeather(openwather: Openweathermap): Weather {
+  private generateWeather(openwather: Openweathermap, city: string): Weather {
     return {
       isRaining: openwather.weather
         .map((w) => w.main === 'Rain')
         .reduce((p, a) => p || a),
       temp: openwather.main.temp,
+      city: city,
     };
   }
 }

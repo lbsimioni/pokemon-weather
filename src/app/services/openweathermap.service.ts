@@ -14,7 +14,7 @@ export class OpenweathermapService {
 
   findByCityName(cityName: string): Observable<Openweathermap> {
     return this.httpClient.get<Openweathermap>(
-      `https://api.openweathermap.org/data/2.5/weather?q=${cityName}&units=metric&appid=${this.API_KEY}`
+      `https://api.openweathermap.org/data/2.5/weather?q=${cityName}&units=metric&lang=pt_br&appid=${this.API_KEY}`
     );
   }
 }

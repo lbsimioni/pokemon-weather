@@ -14,7 +14,7 @@ import { Result } from './models/result.model';
 })
 export class AppComponent implements OnInit {
   loading: boolean = false;
-  actualPokemon: Pokemon = { name: '' };
+  actualPokemon: Pokemon = { name: '', url: '' };
   weatherSubject: Subject<Weather> = new Subject();
   result: Result = {};
 
@@ -45,8 +45,9 @@ export class AppComponent implements OnInit {
     this.updateLoading(true);
   }
 
-  onError() {
+  onProcess() {
     this.result = {};
+    this.updateLoading(true);
   }
 
   getPokemon(pokemons: Pokemon[]): Pokemon {
@@ -57,14 +58,25 @@ export class AppComponent implements OnInit {
   }
 
   private handleResult(type: Types, weather: Weather): void {
-    this.result = {
-      isRaining: weather.isRaining,
-      pokemonName: this.actualPokemon.name,
-      pokemonType: type,
-      temp: weather.temp,
-    };
+    let pokemonImg: string = '';
 
-    this.updateLoading(false);
+    this.pokeService
+      .findDetails(this.actualPokemon.url)
+      .then((result) => {
+        pokemonImg = result;
+      })
+      .finally(() => {
+        this.result = {
+          isRaining: weather.isRaining,
+          temp: weather.temp,
+          city: weather.city,
+          pokemonName: this.actualPokemon.name,
+          pokemonImg,
+          pokemonType: type,
+        };
+
+        this.updateLoading(false);
+      });
   }
 
   private random(max: number): number {

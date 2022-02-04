@@ -1,0 +1,16 @@
+@charset "UTF-8";
+
+.pokemon-info, .city-name {
+    width: 100%;
+    text-align: center;
+}
+
+.pokemon-info p, .city-name {
+    font-weight: 600;
+}
+
+.city-name {
+    text-transform: uppercase;
+    border-bottom: 1px solid #666;
+    padding-bottom: 10px;
+}

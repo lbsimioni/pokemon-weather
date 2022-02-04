@@ -10,11 +10,11 @@ Para executarmos o projeto, devemos seguir os passos abaixo:
 
 <ol>
     <li>
-        Para instalarmos o Angular, precisamos ter instalado o node, mais especificamente o seu gerenciador de pacotes, o <b>npm</b>, para isso, seguir a [documentação de instalação do npm](https://rockcontent.com/br/blog/npm/).
+        Para instalarmos o Angular, precisamos ter instalado o node, mais especificamente o seu gerenciador de pacotes, o <b>npm</b>, para isso, seguir a documentação de instalação do npm: https://rockcontent.com/br/blog/npm/
     </li>
     <li>
-        Para instalarmos o Angular, devemos seguir a [documentação de instalação do Angular](https://angular.io/cli).
-        Obs.: Temos uma [documentação](https://angular.io/guide/setup-local) do Angular para fazemos a instalação, incluindo a instalação do npm.
+        Para instalarmos o Angular, devemos seguir a [documentação de instalação do Angular](https://angular.io/cli).</br>
+        Obs.: Temos uma documentação do Angular para fazemos a instalação, incluindo a instalação do npm: https://angular.io/guide/setup-local.
     </li>
     <li>
         Após fazer o download e a instalação do gerenciador de dependências (npm) e o Angular, recomendasse o reinício da máquina.
@@ -24,16 +24,16 @@ Para executarmos o projeto, devemos seguir os passos abaixo:
     </li>
     <li>
         Agora deveremos fazer a instalação dos dependências do projeto, para isso, devemos executar o código abaixo:
-        `npm install`
-        Obs.: Após a execução desse comando, inúmeras dependências serão instaladas, o que pode demorar um tempo, mas é importante que esperemos o download de todas as dependências.
+        ```npm install```</br>
+        Obs.: Após a execução desse comando, inúmeras dependências serão instaladas, o que pode demorar um tempo, mas é importante que esperemos o download de todas as dependências.</br>
         Obs2.: É normal dar alguns warnings ou errors no final da execução desse código, pois estamos fazendo download de terceiros, que podem estar com algum warning em seu código.
     </li>
     <li>
         Agora precisamos settar a APPID do OpenweatherMap, para isso, devemos navegar em src/environments/environmet.ts, devemos localizar a chave <b>openWeatherKey</b> e após o : e dentro das '' colocar a chave.
     </li>
     <li>
-        Agora basta executar o servidor, para isso, no terminal aberto para executarmos o npm install, devemos rodar o comando:
-        `ng serve`
+        Agora basta executar o servidor, para isso, no terminal aberto para executarmos o npm install, devemos rodar o comando:</br>
+        ```ng serve```</br>
         Esse comando irá subir um servidor local para a renderização da aplicação, esse comando deixará o terminal em modo de escuta, pois o servidor é live-reload, ou seja, quando tivermos uma alteração de código o servidor irá reiniciar e já exibir as alterações, portando, não devemos fechar o terminal e nem pará-lo (ctrl+c).
     </li>
     <li>

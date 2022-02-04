@@ -1,0 +1,17 @@
+@charset "UTF-8";
+
+.loading-image-container {
+    position: fixed;
+    background-color: rgba(51, 51, 51, .4);
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: 10;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: progress;
+}

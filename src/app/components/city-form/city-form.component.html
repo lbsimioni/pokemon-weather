@@ -1,0 +1,9 @@
+<div class="city-form-image-container">
+    <img alt="Logo imagem pokemon" src="assets/images/pokemon-logo.png" />
+</div>
+
+<label for="cityInput" class="city-form-label">Insira uma <b>cidade</b> para visualizar um Pokémon de acordo com o clima</label>
+
+<input [(ngModel)]="cityInput" class="city-form-input" placeholder="Ex.: Campinas" />
+
+<button [disabled]="cityInput.trim().length === 0" type="submit" class="city-form-button" (click)="searchCity()">Buscar</button>

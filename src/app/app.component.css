@@ -1,0 +1,27 @@
+@charset "UTF-8";
+
+.pokemon-wallpaper {
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+}
+
+.pokemon-content {
+    width: calc(100% - 40px);
+    height: calc(100% - 40px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    z-index: 2;
+}
+
+.pokemon-city-container {
+    min-width: 300px;
+    max-width: 450px;
+    border: 1px solid #555;
+    border-radius: 0.25rem;
+    padding: 15px;
+    background-color: #F9F9F9;
+    z-index: 3;
+}

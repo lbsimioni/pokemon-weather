@@ -1,0 +1,61 @@
+.city-form-image-container {
+    margin-bottom: 15px;
+}
+
+.city-form-image-container img {
+    max-width: 100%;
+}
+
+.city-form-label {
+    width: 100%;
+    display: block;
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+.city-form-input {
+    width: calc(100% - 1.5rem);
+    color: rgb(209, 205, 199);
+    background-color: rgb(24, 26, 27);
+    border-color: rgb(60, 65, 68);
+    display: block;
+    padding: 0.375rem 0.75rem;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #212529;
+    background-color: #fff;
+    background-clip: padding-box;
+    border: 1px solid #ced4da;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    border-radius: 0.25rem;
+}
+
+.city-form-button {
+    margin-top: 10px;
+    cursor: pointer;
+    width: 100%;
+    padding: 0.375rem 0.75rem;
+    line-height: 1.5;
+    font-size: 1rem;
+    font-weight: 400;
+    background-color: #3c5aa6;
+    color: #FFF;
+    border: transparent;
+    border-radius: 0.25rem;
+    text-align: center;
+    text-decoration: none;
+    vertical-align: middle;
+    transition: opacity .15s ease-in-out;
+}
+
+.city-form-button:hover {
+    opacity: .9;
+}
+
+.city-form-button:disabled {
+    opacity: .6;
+    cursor: no-drop;
+}

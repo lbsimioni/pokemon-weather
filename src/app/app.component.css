@@ -8,20 +8,25 @@
 
 .pokemon-content {
     width: calc(100% - 40px);
-    height: calc(100% - 40px);
     display: flex;
-    justify-content: center;
+    flex-direction: column;
+    justify-content: space-between;
     align-items: center;
     padding: 20px;
     z-index: 2;
 }
 
-.pokemon-city-container {
+.pokemon-city-container, .pokemon-result-container {
     min-width: 300px;
+    width: 70%;
     max-width: 450px;
     border: 1px solid #555;
     border-radius: 0.25rem;
     padding: 15px;
     background-color: #F9F9F9;
     z-index: 3;
+}
+
+.pokemon-result-container {
+    margin-top: 20px;
 }

@@ -5,6 +5,7 @@ import { Weather } from './models/weather.model';
 import { getType, Types } from './models/types.model';
 import { PokeService } from './services/poke.service';
 import { Pokemon } from './models/pokemon.model';
+import { Result } from './models/result.model';
 
 @Component({
   selector: 'app-root',
@@ -13,23 +14,24 @@ import { Pokemon } from './models/pokemon.model';
 })
 export class AppComponent implements OnInit {
   loading: boolean = false;
-  actualPokemon: Pokemon | null = null;
+  actualPokemon: Pokemon = { name: '' };
   weatherSubject: Subject<Weather> = new Subject();
+  result: Result = {};
 
   constructor(private pokeService: PokeService) {}
 
-  ngOnInit(): void {
+  ngOnInit() {
     this.weatherSubject.subscribe((weather: Weather) => {
       if (!weather) this.updateLoading(false);
 
       this.updateLoading(true);
 
-      const type: Types = getType(weather);
-      this.pokeService.findByType(type).subscribe((response) => {
+      const TYPE: Types = getType(weather);
+      this.pokeService.findByType(TYPE).subscribe((response) => {
         this.actualPokemon = this.getPokemon(
           response.pokemon.map((p: any) => p.pokemon)
         );
-        this.updateLoading(false);
+        this.handleResult(TYPE, weather);
       });
     });
   }
@@ -43,11 +45,26 @@ export class AppComponent implements OnInit {
     this.updateLoading(true);
   }
 
+  onError() {
+    this.result = {};
+  }
+
   getPokemon(pokemons: Pokemon[]): Pokemon {
     if (this.actualPokemon)
-      pokemons = pokemons.filter((p) => p.name !== this.actualPokemon?.name);
+      pokemons = pokemons.filter((p) => p.name !== this.actualPokemon.name);
 
     return pokemons[this.random(pokemons.length)];
+  }
+
+  private handleResult(type: Types, weather: Weather): void {
+    this.result = {
+      isRaining: weather.isRaining,
+      pokemonName: this.actualPokemon.name,
+      pokemonType: type,
+      temp: weather.temp,
+    };
+
+    this.updateLoading(false);
   }
 
   private random(max: number): number {

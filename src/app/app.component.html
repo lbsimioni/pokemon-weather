@@ -5,11 +5,13 @@
   <div class="pokemon-city-container">
     <app-city-form 
       (loading)="updateLoading($event)" 
-      (cityFound)="updateWeather($event)"></app-city-form>
+      (cityFound)="updateWeather($event)"
+      (onError)="onError()"></app-city-form>
   </div>
 
-  <div class="pokemon-result-container">
-    
+  <div class="pokemon-result-container" 
+    *ngIf="result.pokemonName">
+    <app-result-view [result]="result"></app-result-view>
   </div>
 
 </div>

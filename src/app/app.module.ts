@@ -7,9 +7,10 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AppComponent } from './app.component';
 import { CityFormComponent } from './components/city-form/city-form.component';
 import { LoadingComponent } from './components/loading/loading.component';
+import { ResultViewComponent } from './components/result-view/result-view.component';
 
 @NgModule({
-  declarations: [AppComponent, CityFormComponent, LoadingComponent],
+  declarations: [AppComponent, CityFormComponent, LoadingComponent, ResultViewComponent],
   imports: [
     BrowserModule,
     HttpClientModule,

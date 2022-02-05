@@ -9,10 +9,10 @@ export type Types =
   | 'rock'
   | 'fire'
   | 'normal'
-  | 'eletric';
+  | 'electric';
 
 export function getType(weather: Weather): Types {
-  if (weather.isRaining) return 'eletric';
+  if (weather.isRaining) return 'electric';
 
   if (weather.temp < 5) return 'ice';
   if (weather.temp < 10) return 'water';
